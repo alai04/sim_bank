@@ -1,0 +1,32 @@
+@host = http://192.168.1.32:8080
+
+### Create account
+POST {{host}}/accounts HTTP/1.1
+
+{
+  "owner": "admin",
+  "currency": "USD"
+}
+
+### Create account with wrong parameters
+POST {{host}}/accounts HTTP/1.1
+
+{
+  "owner": "admin",
+  "currency": "ABC"
+}
+
+### Get account
+GET {{host}}/accounts/234 HTTP/1.1
+
+### Get account not found
+GET {{host}}/accounts/10000 HTTP/1.1
+
+### Get account wrong parameters
+GET {{host}}/accounts/-1 HTTP/1.1
+
+### List accounts
+GET {{host}}/accounts?page_id=2&page_size=5 HTTP/1.1
+
+### List accounts empty
+GET {{host}}/accounts?page_id=2000&page_size=5 HTTP/1.1
