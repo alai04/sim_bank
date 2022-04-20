@@ -1,4 +1,4 @@
-@host = http://192.168.1.32:8080
+@host = http://192.168.1.23:8080
 
 ### Create account
 POST {{host}}/accounts HTTP/1.1
@@ -30,3 +30,13 @@ GET {{host}}/accounts?page_id=2&page_size=5 HTTP/1.1
 
 ### List accounts empty
 GET {{host}}/accounts?page_id=2000&page_size=5 HTTP/1.1
+
+### Create transfer
+POST {{host}}/transfers HTTP/1.1
+
+{
+  "from_account_id": 13,
+  "to_account_id": 16,
+  "amount": 10,
+  "currency": "USD"
+}
